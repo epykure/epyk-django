@@ -1,15 +1,18 @@
 
-import os
-import sys
 
-sys.path.append(os.path.join("..", '..', '..', '..', 'epyk-ui'))
+def get_page(rptObj):
+  """
+  Description:
+  ------------
 
-from epyk.core.Page import Report
+  Attributes:
+  ----------
+  :param rptObj:
 
-rptObj = Report()
-rptObj.headers.dev()
+  :rtype: epyk.core.Page.Report
+  """
+  rptObj.headers.dev()
+  rptObj.ui.div("Hellow World {{ name }}!")
+  return rptObj
 
-rptObj.ui.div("Hellow World {{ name }}!")
-
-rptObj.outs.html_file(path=os.path.join("..", "..", 'views', 'templates', 'views'), name=os.path.split(os.path.abspath(__file__))[-1][:-3])
 
